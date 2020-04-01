@@ -25,7 +25,7 @@ SECRET_KEY = '0i*y#!rn^g+*wu-#(x7@b2ud^sgplb-(cu^rb4++h!4#20-fwm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['204.48.17.50']
 
 
 # Application definition
@@ -77,13 +77,25 @@ WSGI_APPLICATION = 'farmacia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'farmacia',
+        'NAME': 'farmaciaDB',
         'HOST': 'localhost' ,
-        'USER': 'postgres' ,
-        'PASSWORD': '123' ,
-        'PORT': '5432' ,
+        'USER': 'farmacia_admin' ,
+        'PASSWORD': 'farame20' ,
+        'PORT': '' ,
     }
 }
+
+#prueba local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'farmacia',
+#         'HOST': 'localhost' ,
+#         'USER': 'postgres' ,
+#         'PASSWORD': '123' ,
+#         'PORT': '5432' ,
+#     }
+# }
 
 
 # Password validation
