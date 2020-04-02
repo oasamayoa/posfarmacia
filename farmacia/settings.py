@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0i*y#!rn^g+*wu-#(x7@b2ud^sgplb-(cu^rb4++h!4#20-fwm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['204.48.17.50', '*']
+ALLOWED_HOSTS = ['204.48.17.50']
 
 
 # Application definition
@@ -74,28 +74,28 @@ WSGI_APPLICATION = 'farmacia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'farmaciadb',
-#         'HOST': 'localhost' ,
-#         'USER': 'farmacia_admin' ,
-#         'PASSWORD': 'farame20' ,
-#         'PORT': '' ,
-#     }
-# }
-
-#prueba local
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'farmacia',
+        'NAME': 'farmaciadb',
         'HOST': 'localhost' ,
-        'USER': 'postgres' ,
-        'PASSWORD': '123' ,
-        'PORT': '5432' ,
+        'USER': 'farmacia_admin' ,
+        'PASSWORD': 'farame20' ,
+        'PORT': '' ,
     }
 }
+
+#prueba local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'farmacia',
+#         'HOST': 'localhost' ,
+#         'USER': 'postgres' ,
+#         'PASSWORD': '123' ,
+#         'PORT': '5432' ,
+#     }
+# }
 
 
 # Password validation
@@ -135,6 +135,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
