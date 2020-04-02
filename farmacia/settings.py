@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'farmacia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'farmaciaDB',
+        'NAME': 'farmaciadb',
         'HOST': 'localhost' ,
         'USER': 'farmacia_admin' ,
         'PASSWORD': 'farame20' ,
