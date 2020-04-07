@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-min" class="hold-transition login-page">
   {% block navbar %}
 <div class="wrapper">
 
@@ -113,28 +113,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="badge badge-warning navbar-badge"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
+          <span class="dropdown-header">Cerrar Sesión</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
+          <a href="{% url 'bases:logout' %}" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Salir
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          <a></a>
         </div>
       </li>
       <li class="nav-item">
@@ -146,6 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
   {% endblock navbar %}
   <!-- Main Sidebar Container -->
+    {% block sidebar %}
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -155,7 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </a>
 
     <!-- Sidebar -->
-    {% block sidebar %}
+
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">

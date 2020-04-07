@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0i*y#!rn^g+*wu-#(x7@b2ud^sgplb-(cu^rb4++h!4#20-fwm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['64.227.5.153']
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bases',
+    'mva',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,6 @@ STATIC_URL = '/static/'
 #
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static_root')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'

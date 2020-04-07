@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block navbar %}{% endblock%}
+{% block sidebar %}{% endblock%}
+{% block content %}{% endblock%}
+{% block footer %}{% endblock%}
+{% block js_page %}{% endblock %}
+{% block login %}
+<div class="hold-transition login-page">
+  <div class="login-logo">
+    <a href=""><b>Admin</b></a>
+  </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Inicia sesión para comenzar tu sesió</p>
+
+      <form class="user" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="id_username" name="username" placeholder="Usuario">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user-friends"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" id="id_password" name="password" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-user btn-block">Ingresar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock login %}
