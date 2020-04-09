@@ -16,11 +16,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{% static 'base/plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'base/dist/css/adminlte.min.css'%}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'base/plugins/datatables-bs4/css/dataTables.bootstrap4.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-min" class="hold-transition login-page">
-  {% block navbar %}
+{% block navbar %}
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -132,15 +134,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </ul>
   </nav>
   <!-- /.navbar -->
-  {% endblock navbar %}
+{% endblock navbar %}
   <!-- Main Sidebar Container -->
-    {% block sidebar %}
+{% block sidebar %}
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{% url 'bases:home' %}" class="brand-link">
       <img src="{% static 'base/dist/img/AdminLTELogo.png' %} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Administracion</span>
     </a>
 
     <!-- Sidebar -->
@@ -165,21 +167,204 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Menu
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <li class="nav-header">Administrativo</li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                <a href="{% url 'mva:list_categoria' %}" class="nav-link">
+                  <i class="fas fa-sort-amount-down-alt"></i>
+                  <p>
+                    Categorias
+                  </p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
+                <a href="pages/gallery.html" class="nav-link">
+                  <i class="nav-icon far fa-image"></i>
+                  <p>
+                    Gallery
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <i class="nav-icon far fa-envelope"></i>
+                  <p>
+                    Mailbox
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/mailbox/mailbox.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Inbox</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/mailbox/compose.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Compose</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Read</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    Pages
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/examples/invoice.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Invoice</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/profile.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/e_commerce.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>E-commerce</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/projects.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Projects</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/project_add.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Add</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/project_edit.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Edit</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/project_detail.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Detail</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/contacts.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Contacts</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-plus-square"></i>
+                  <p>
+                    Extras
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/examples/login.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Login</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/register.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Register</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/forgot-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Forgot Password</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/recover-password.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Recover Password</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/lockscreen.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Lockscreen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Legacy User Menu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/language-menu.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Language Menu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/404.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Error 404</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/500.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Error 500</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/pace.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Pace</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/examples/blank.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Blank Page</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="starter.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Starter Page</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-header">MISCELLANEOUS</li>
+              <li class="nav-item">
+                <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Documentation</p>
                 </a>
               </li>
             </ul>
@@ -195,100 +380,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
+      </.sidebar-menu
     </div>
-    <!-- /.sidebar -->
-    {% endblock sidebar %}
-  </aside>
+     /.sidebar -->
 
+  </aside>
+{% endblock sidebar %}
   <!-- Content Wrapper. Contains page content -->
-  {% block content %}
+{% block content %}
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">Pagina en Blanco</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item"><a href="{% url 'bases:home' %}">Regresar</a></li>
+              <li class="breadcrumb-item active">Menu Principal</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-      {% endblock content %}
 
+  <!-- /.content-wrapper -->
+
+{% endblock %}
+{% block footer %}
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -297,9 +419,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <p>Sidebar content</p>
     </div>
   </aside>
+
   <!-- /.control-sidebar -->
-      {% block footer %}
   <!-- Main Footer -->
+
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
@@ -309,17 +432,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 </div>
+{% endblock %}
 <!-- ./wrapper -->
-    {% endblock footer %}
-    {% block login %}{% endblock login %}
+
+
+{% block login %}{% endblock login %}
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
 <script src="{% static 'base/plugins/jquery/jquery.min.js' %}"></script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'base/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- DataTables -->
+<script src="{% static 'base/plugins/datatables/jquery.dataTables.js' %}"></script>
+<script src="{% static 'base/plugins/datatables-bs4/js/dataTables.bootstrap4.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static 'base/dist/js/adminlte.min.js' %}"></script>
-  {% block js_page %}{% endblock %}
+{% block js_page %}{% endblock %}
 </body>
 </html>

@@ -53,21 +53,21 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'farmacia.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR,'templates')],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 WSGI_APPLICATION = 'farmacia.wsgi.application'
 
@@ -87,16 +87,16 @@ DATABASES = {
 }
 
 #prueba local
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'farmacia',
-#         'HOST': 'localhost' ,
-#         'USER': 'postgres' ,
-#         'PASSWORD': '123' ,
-#         'PORT': '5432' ,
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'farmacia',
+        'HOST': 'localhost' ,
+        'USER': 'postgres' ,
+        'PASSWORD': '123' ,
+        'PORT': '5432' ,
+    }
+}
 
 
 # Password validation

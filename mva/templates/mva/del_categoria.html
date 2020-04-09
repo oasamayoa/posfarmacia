@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% block content  %}
+<form method="POST" class="form-inline">
+  {% csrf_token %}
+<div class="content-wrapper ">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Eliminar? {{ obj.descripcion }}</h3>
+        <div class="card-tools">
+        </div>
+        <!-- /.card-tools -->
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <button type="submit" class="btn btn-danger">Si, Eliminar</button>
+        <a href="{% url 'mva:list_categoria' %}" class="btn btn-success"><span
+          class="fa fa-undo"></span>Cancelar</a>
+      </div>
+    </div>
+    </div>
+  </div>
+{% endblock %}
+{% block footer %}{% endblock %}

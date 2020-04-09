@@ -1,0 +1,106 @@
+{% extends 'base/base.html' %}
+{% block footer %}{% endblock %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+   <section class="content-header">
+     <div class="container-fluid">
+       <div class="row mb-2">
+         <div class="col-sm-6">
+           <h1>Categorias </h1>
+         </div>
+         <div class="col-sm-6">
+           <ol class="breadcrumb float-sm-right">
+             <li class="breadcrumb-item"><a href="{% url 'mva:list_categoria' %}">Regresar</a></li>
+             <li class="breadcrumb-item"><a href="{% url 'mva:new_categoria' %}">Agregar</a></li>
+             <li class="breadcrumb-item active">Categorias</li>
+           </ol>
+         </div>
+       </div>
+     </div><!-- /.container-fluid -->
+   </section>
+
+   <!-- Main content -->
+   <section class="content">
+
+     <!-- Default box -->
+     <div class="card">
+       <div class="card-header">
+         <h3 class="card-title">Menu</h3>
+
+         <div class="card-tools">
+           <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+             <i class="fas fa-minus"></i></button>
+           <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+             <i class="fas fa-times"></i></button>
+         </div>
+       </div>
+       <div class="card-body p-0">
+         <table class="table table-striped projects">
+             <thead>
+                 <tr>
+                     <th style="width: 20%">
+                         Categoria
+                     </th>
+                     <th style="width: 20%">
+                         F. Creacion
+                     </th>
+                     <th style="width: 20%">
+                         F. Modificacion
+                     </th>
+                     <th style="width: 8%" class="text-center">
+                         Estado
+                     </th>
+                     <th class="all" style="width: 20%">
+                     </th>
+                 </tr>
+             </thead>
+             <tbody>
+               {% for item in obj %}
+                 <tr>
+                     <td>
+                       {{ item.descripcion }}
+                     </td>
+                     <td>
+                       {{ item.fc|date:"d/m/Y H:i:s" }}
+                     </td>
+                     <td>
+                       {{ item.fm}}
+                     </td>
+                     <td>
+                      {{ item.estado|yesno:"Activo,Inactivo" }}
+                     </td>
+                     <td class="project-actions text-right">
+                           <a class="btn btn-info btn-sm" href="{% url 'mva:edit_categoria' item.id %}">
+                               <i class="fas fa-pencil-alt">
+                               </i>
+                               Edit
+                           </a>
+                           <a class="btn btn-danger btn-sm" href="{% url 'mva:del_categoria' item.id %}">
+                               <i class="fas fa-trash">
+                               </i>
+                               Delete
+                           </a>
+                       </td>
+                 </tr>
+               </tbody>
+               {% endfor %}
+              </div>
+            </div>
+          </div>
+{% endblock%}
+{% block js_page %}
+<script>
+  $(function () {
+    $('.table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+{% endblock %}

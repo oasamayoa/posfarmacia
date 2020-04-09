@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+f
+{% block content %}
+<form method="POST" class="form-inline">
+  {% csrf_token %}
+  <div class="content-wrapper col-xl-6 col-md-6 mb-6">
+           <div class="card card-success">
+             <div class="card-header">
+               <h3 class="card-title">Nueva Categoria</h3>
+
+               <div class="card-tools">
+                 <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="/pages/widgets.html" data-source-selector="#card-refresh-content"><i class="fas fa-sync-alt"></i></button>
+                 <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                 <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+               </div>
+               <!-- /.card-tools -->
+             </div>
+             <!-- /.card-header -->
+             <div class="card-body">
+               <div class="dropdwon-divider"></div>
+               <div class="row">
+                 <div class="col-10">
+                   <div class="input-group">
+                     <input type="text" name="descripcion" maxlength="100" class="form-control" required id="id_descripcion" placeholder="Descripcion"
+                     value="{% if obj %} {{ obj.descripcion }} {% endif %}">
+                   </div>
+                   <div class="col-2">
+                     <div class="form-group">
+                       <label for="id_estado">Estado</label>
+                       <input type="checkbox" name="estado" class="form-control" id="id_estado"
+                         {% if obj.estado %} checked {% endif %}>
+                     </div>
+                   </div>
+                   <div class="dropdwon-divider"></div>
+                   <div class="row">
+                     <div class="col">
+                       <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span>Guardad</button>
+                       <a href="{% url 'mva:list_categoria' %}" class="btn btn-success"><span class=" fa fa-undo"</span>Cancelar</a>
+
+                     </div>
+
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <!-- /.card-body -->
+           </div>
+           <!-- /.card -->
+         </div>
+{% endblock%}
+{% block footer %}{% endblock%}
+{% block js_page %}{% endblock %}
