@@ -87,16 +87,16 @@ DATABASES = {
 }
 
 #prueba local
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'farmacia',
-        'HOST': 'localhost' ,
-        'USER': 'postgres' ,
-        'PASSWORD': '123' ,
-        'PORT': '5432' ,
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'farmacia',
+#         'HOST': 'localhost' ,
+#         'USER': 'postgres' ,
+#         'PASSWORD': '123' ,
+#         'PORT': '5432' ,
+#     }
+# }
 
 
 # Password validation
