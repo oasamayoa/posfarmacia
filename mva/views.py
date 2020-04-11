@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Categoria
+from .models import Categoria, SubCategoria
 from .forms import CategoriaForm
 
 class CategoriaView(LoginRequiredMixin, generic.ListView):
@@ -44,3 +44,9 @@ class CategoriaDel(LoginRequiredMixin, generic.DeleteView):
     form_class=CategoriaForm
     success_url=reverse_lazy("mva:list_categoria")
     logi_url="base:login"
+
+class SubCategoriaView(LoginRequiredMixin, generic.ListView):
+    model = SubCategoria
+    template_name = "mva/list_subcategoria.html"
+    context_object_name = "obj"
+    login_url = 'bases:login'

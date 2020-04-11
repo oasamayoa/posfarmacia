@@ -22,8 +22,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-min" class="hold-transition login-page">
-{% block navbar %}
+
 <div class="wrapper">
+{% block navbar %}
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -173,15 +174,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-header">Administrativo</li>
-              <li class="nav-item">
-                <a href="{% url 'mva:list_categoria' %}" class="nav-link">
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
                   <i class="fas fa-sort-amount-down-alt"></i>
                   <p>
-                    Categorias
+                    Menu
+                    <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'mva:list_categoria' %}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Categorias</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'mva:list_subcategoria' %}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sub Categorias</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <!-- <li class="nav-item">
+               <!-- <li class="nav-item">
                 <a href="pages/gallery.html" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>
@@ -193,7 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="nav-link">
                   <i class="nav-icon far fa-envelope"></i>
                   <p>
-                    Mailbox
+                    Mailboxx
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -357,8 +373,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <i class="far fa-circle nav-icon"></i>
                       <p>Starter Page</p>
                     </a>
-                  </li>
-                </ul>
+                  </li> -->
+                <!-- </ul>
               </li>
               <li class="nav-header">MISCELLANEOUS</li>
               <li class="nav-item">
@@ -377,12 +393,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
-      </.sidebar-menu
+      <!-- </.sidebar-menu -->
     </div>
-     /.sidebar -->
+     <!-- /.sidebar  -->
 
   </aside>
 {% endblock sidebar %}
@@ -409,8 +425,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- /.content-wrapper -->
 
-{% endblock %}
-{% block footer %}
+
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -419,10 +435,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <p>Sidebar content</p>
     </div>
   </aside>
-
+{% endblock %}
   <!-- /.control-sidebar -->
   <!-- Main Footer -->
-
+{% block footer %}
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
